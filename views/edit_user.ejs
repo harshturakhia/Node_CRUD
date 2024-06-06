@@ -1,0 +1,54 @@
+<%- include('layout/header') %>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mx-auto mt-3">
+                <div class="card-shadow">
+                    <div class="card-header bg-success p-3 rounded-3 text-center">
+                        <h3 class="text-light">Edit User : <%= user.name %>
+                        </h3>
+                    </div>
+                    <div class="card-body p-4 bg-secondary my-3 rounded-2">
+                        <form action="/update/<%=user._id%>" method="post" id="edit-form" enctype="multipart/form-data">
+
+
+                            <div class="mb-3">
+                                <label for="exampleInputName" class="form-label fs-4 text-white">Full Name</label>
+                                <input type="text" class="form-control" name="name" id="exampleInputName"
+                                    placeholder="Enter Name" value="<%= user.name %>">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label fs-4 text-white">Email address</label>
+                                <input type="email" class="form-control" name="email" id="exampleInputEmail1"
+                                    placeholder="Enter Email" value="<%= user.email %>">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleInputPhone" class="form-label fs-4 text-white">Phone Number</label>
+                                <input type="text" class="form-control" name="phone" id="exampleInputPhone"
+                                    placeholder="Enter Phone" value="<%= user.phone %>">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label fs-4 text-white">Select image </label>
+                                <input class="form-control" type="file" name="image" id="formFile"
+                                    placeholder="Upload Photo">
+                                <img src="/<%= user.image %>" alt="" width="50%" height="50%"
+                                    class=" m-2 text-center p-2 img-thumbnail">
+                            </div>
+                            <input type="hidden" name="old_image" value="<%= user.image %>">
+
+                            <div class="my-3 d-grid">
+                                <!-- <input type="submit" name="submit" value="Add User" class="btn btn-primary btn-lg"> -->
+                                <button class="btn btn-success btn-lg" type="submit">Update User</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('layout/footer') %>
